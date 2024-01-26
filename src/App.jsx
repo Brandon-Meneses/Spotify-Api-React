@@ -38,6 +38,8 @@ function App() {
       <form onSubmit={handleSearch}>
         <input type="text" value={cancion} onChange={(e) => setCancion(e.target.value)} />
         <button type="submit">Buscar</button>
+        <br />
+        <br />
       </form>
 
       {canciones.map((cancion, index) => (
