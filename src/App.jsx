@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="app-container">
       <h2>Spotify API</h2>
       <form onSubmit={handleSearch}>
         <input type="text" value={cancion} onChange={(e) => setCancion(e.target.value)} />
@@ -42,18 +42,20 @@ function App() {
         <br />
       </form>
 
-      {canciones.map((cancion, index) => (
-        <div key={index} className="song-item">
-          <img src={cancion.data.albumOfTrack.coverArt.sources[0].url} alt="" />
-          <h2>{cancion.data.name}</h2>
-          <a href={cancion.data.uri} target="_blank" rel="noopener noreferrer">
-            <button>Play Song</button>
-            <br />
-            <br />
-          </a>
-        </div>
-      ))}
-    </>
+      <div className="songs-container">
+        {canciones.map((cancion, index) => (
+          <div key={index} className="song-item">
+            <img src={cancion.data.albumOfTrack.coverArt.sources[0].url} alt="" />
+            <h2>{cancion.data.name}</h2>
+            <a href={cancion.data.uri} target="_blank" rel="noopener noreferrer">
+              <button>Play Song</button>
+              <br />
+              <br />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
